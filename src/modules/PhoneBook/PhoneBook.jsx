@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 import ContactsForm from './ContactsForm/ContactsForm';
 import ContactList from './ContactList/ContactList';
 import ContactsFilter from './ContactsFilter/ContactsFilter';
+import Loader from '../../shared/Loader/Loader';
 
 import { fetchAllContacts } from 'redux/contacts/contacts-operations';
 import { selectIsLoading, selectError, selectVisibleContacts } from 'redux/contacts/contacts-selectors';
@@ -30,7 +31,7 @@ const PhoneBook = () => {
             <h2 className={styles.title}>Phonebook</h2>
             <ContactsForm />
           </div>
-          {isLoading && !error && <b>Request in progress...</b>}
+          {isLoading && !error && <Loader/>}
           <div className={styles.block}>
             <h2 className={styles.title}>Contacts</h2>
             <ContactsFilter/>
